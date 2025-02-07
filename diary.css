@@ -242,3 +242,45 @@ body{
     border-radius: 7px;
     background-image: radial-gradient(circle at 3.7% 49.8%, rgb(143, 232, 255) 21.9%, rgb(209, 243, 251) 52.9%);
 }
+.aboutus{
+    height: auto;
+    width: 50%;
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    border-radius: 7px;
+    align-items: center;
+    
+    background-image: radial-gradient(circle at 10% 20%, rgb(117, 86, 204) 0%, rgb(213, 105, 167) 90%);
+    box-shadow:0 0 30px rgba(0, 0, 0, 0.3);
+}
+#abouthead{
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 30px;
+    display: inline;
+}
+.aboutus h3{
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    margin: 10px 5px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.aboutus span{
+    color:white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: red;
+    border-radius: 15%;
+   margin-left: 60px;
+   cursor: pointer;
+}
+.aboutus p{
+    margin-left: 10px;
+}
+.aboutus li{
+    margin-left: 10px;
+}
