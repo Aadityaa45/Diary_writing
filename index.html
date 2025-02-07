@@ -14,8 +14,8 @@
         <img src="newlogo.png">
         <div class="navoptions">
             <h1 class="navop" id="Write_diary_option">Write Diary</h1>
-            <h1 class="navop">Past Writes</h1>
-            <h1 class="navop">About</h1>
+            <h1 class="navop" >Past Writes</h1>
+            <h1 class="navop" id="about_us_option">About</h1>
         </div>
     </div>
     <div class="banner">
@@ -56,6 +56,25 @@
 
     <h1 id="all_head">Your Dairy Writings</h1>
     <div class="all_writes " id="all_entries"></div>
+    <div class="aboutus">
+        <h1 id="abouthead">About The Secret Diary WebPage</h1>
+        <span id="exit2">X</span>
+        <hr>
+        <h3 >Inspiration Behind The Development</h3>
+        <p>I've always had a passion for writing—whether it’s secret diaries, public poetry, or impactful articles. I still remember when I was in 6th grade and discovered a new hobby of maintaining a diary, where I would write about my feelings, emotions, and daily experiences. I kept this habit going for quite some time, but eventually, I stopped.
+            One of the main reasons was that my mother had a keen interest in reading my diary. As an introvert, I didn’t like the idea of someone reading my personal thoughts. There were several instances when my mother opened my diary in front of me, which made me feel embarrassed.
+            Inspired by that experience, I decided to reimagine those moments and implemented my assignment by building a Digital Secret Diary. This project focuses on creating unique ways of interaction while ensuring strong privacy, allowing users to safely store their personal thoughts without worrying about unwanted readers.
+            </p>
+        <hr>
+        <h3>FEATURES</h3>
+        <ul>
+            <li>Easy To Use</li>
+            <li>Easily Understandable User Interface</li>
+            <li>Unique and Strong Privacy features</li>
+            <li>Interactive sound and visual effects</li>
+            <li>Easy To maintain</li>
+        </ul>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
@@ -80,7 +99,7 @@
 <script>
     $(document).ready(function (){
     $(".write_diary").hide();
-    
+    $(".aboutus").hide();
     $(".navop").hover(
         function() {
             $(this).css({
@@ -110,6 +129,23 @@
 
     $("#exit").click(function (){
         $(".write_diary").hide();
+    })
+    $("#about_us_option").click(function (){
+        $("body > *:not(.aboutus)").css({
+        "filter": "blur(10px)",
+        
+    });
+    $(".aboutus").show(1000).css({
+        "z-index": "99",
+    });
+    })
+
+    $("#exit2").click(function (){
+        $("body > *:not(.aboutus)").css({
+        "filter": "none",
+        "pointer-events": "auto"
+    });
+    $(".aboutus").hide(1000);
     })
 
     $("#finishBtn").click(function (){
@@ -154,6 +190,10 @@
                 
                 $("#all_entries").append(written_diary_entry);
             }
+            $("#diary_time").val('');
+            $("#diary_title").val('');
+            $("#input_text").val('');
+            $("#pass").val('');
         } else {
             alert("The given field cannot be empty");
         }
