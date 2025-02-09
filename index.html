@@ -107,7 +107,8 @@
                 "transition": "transform 0.3s ease",
                 "background-image": "linear-gradient(109.6deg, rgb(228, 107, 232) 11.2%, rgb(87, 27, 226) 96.7%)",
                 "border-radius": "7px",
-                "padding": "10px"
+                "padding": "10px",
+                "cursor":"pointer"
             });
         }, 
         function() {
@@ -165,7 +166,7 @@
                     imageHTML = `<img src="${e.target.result}" style="max-width: 100%; height: auto;">`;
 
                     let written_diary_entry = `
-                    <div class="written_diary data-password="${input_pass}" data-id="${unique_id}"">
+                    <div class="written_diary" data-password="${input_pass}" data-id="${unique_id}">
                         <h2>Date:${Input_date}  Tittle:${Input_title}</h2>
                         <div class="content_area">
                             <p>${content}</p>
@@ -190,10 +191,12 @@
                 
                 $("#all_entries").append(written_diary_entry);
             }
+            alert(`Your Diary Entry for ${Input_date} with tittle ${Input_title} is saved!`);
             $("#diary_time").val('');
             $("#diary_title").val('');
             $("#input_text").val('');
             $("#pass").val('');
+            $(".write_diary").hide();
         } else {
             alert("The given field cannot be empty");
         }
@@ -203,6 +206,7 @@
     // $(this).siblings(".content_area").css("filter", "none").fadeIn(3000);
         let entryDiv = $(this).closest('.written_diary');
         let storedPassword = entryDiv.data('password');
+        console.log(storedPassword);
         let entryId = entryDiv.data('id');
         let flag = false;
         let soundd1 = new Audio('succ.mp3');
@@ -213,14 +217,14 @@
 
         for(let i=1;i<=3;i++){
             let User_input_pass = prompt("Enter the Password:");
-            if(User_input_pass===storedPassword){
+            if(User_input_pass==storedPassword){
                 soundd1.play();
                 alert("Success!");
                 $(this).siblings(".content_area").css({
                     "filter":"none",
                     "overflow":"auto",
                     "height":"auto",
-                }).fadeIn(5000);
+                }).show(8000);
     
                 flag=true;
                 break;
